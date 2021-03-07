@@ -3,7 +3,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: { index: './src/index.js', kontakt: './src/kontakt.js' },
+  entry: {
+    index: './src/views/main/index.js',
+    api: './src/views/pokeApi/api.js',
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].bundle.js',
@@ -15,15 +18,15 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html',
+      template: './src/views/main/index.html',
       filename: 'index.html',
       chunk: ['index'],
-      excludeChunks: ['kontakt'],
+      excludeChunks: ['api'],
     }),
     new HtmlWebpackPlugin({
-      template: './src/kontakt.html',
-      filename: 'kontakt.html',
-      chunk: ['kontakt'],
+      template: './src/views/pokeApi/api.html',
+      filename: 'api.html',
+      chunk: ['api'],
       excludeChunks: ['index'],
     }),
   ],
