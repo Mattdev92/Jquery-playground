@@ -17,6 +17,7 @@ class Logic {
       .last()
       .append(`<button class="remove_button">DELETE</button>`);
     $('input').val('');
+    console.log($('input').length);
   }
 
   removeItem(item) {
